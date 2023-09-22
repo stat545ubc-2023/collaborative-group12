@@ -22,12 +22,12 @@ $~$
 
 The division of labour was decided as a group. Exercises 3, 4, and 5 were done together. 
 
-**Joey**
+### **Joey**
 - Exercise 6 (Troubleshooting document)
 - Checking Exercise 2 (Markdown Formatting) is fulfilled and completed properly
 - Exercise 5: Teamwork Contract
 
-**Juliana**
+### **Juliana**
 - Checking Exercise 3 (Merge one Pull Request per teammate) is fulfilled and completed properly
 - Exercise 5: Teamwork Contract
   
@@ -42,11 +42,11 @@ Sarah | Done | ✔
 
 $~$
 
-**Poppy** (Xiangwen)
+### **Poppy** (Xiangwen)
 - Exercise 7 (README file)
 - Exercise 5: Teamwork Contract
 
-**Sarah**
+### **Sarah**
 - Exercise 1 (Getting Setup)
 - Exercise 5: Teamwork Contract
 - Exercise 8 (Submitting this Milestone)
