@@ -13,9 +13,6 @@ $~$
 $~$
 
 ## 🤝 <a name="members"></a> Group Members
-
-$~$ 
-
 Member | GitHub Username
 | :---: | :---:
 Joey | [@hotz1](https://github.com/hotz1)
