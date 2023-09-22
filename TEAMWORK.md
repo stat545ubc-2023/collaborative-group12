@@ -7,6 +7,8 @@ $~$
 ## 📋 Table of Contents
 1. [Group Members](#members)
 2. [Division of Labour](#division)
+   - [Individual Responsibilities](#individual)
+   - [Pull Requests](#pullrequests)
 3. [Timing](#timing)
 4. [Communication](#communication)
 
@@ -24,14 +26,16 @@ $~$
 
 ## 💻✍️ <a name="division"></a> Division of Labour 
 
-The division of labour was decided as a group. Exercises 3, 4, and 5 were done together. 
+The division of labour was decided as a group. Exercises 3, 4, and 5 were done together.
 
-### **Joey**
+### :bust_in_silhouette: <a name="individual"></a> Individual Responsibilities
+
+#### **Joey**
 - Exercise 6 (Troubleshooting document)
 - Checking Exercise 2 (Markdown Formatting) is fulfilled and completed properly
 - Exercise 5: Teamwork Contract
 
-### **Juliana**
+#### **Juliana**
 - Checking Exercise 3 (Merge one Pull Request per teammate) is fulfilled and completed properly
 - Exercise 5: Teamwork Contract
   
@@ -44,32 +48,33 @@ Juliana | Done | ✔
 Poppy | Done  |  ✔
 Sarah | Done | ✔
 
-Joey:
-- [x] Pull Request Created
-- [x] Merged a Pull Request
-
-Juliana:
-- [x] Pull Request Created
-- [x] Merged a Pull Request
-
-Poppy:
-- [x] Pull Request Created
-- [x] Merged a Pull Request
-
-Sarah:
-- [x] Pull Request Created
-- [x] Merged a Pull Request
-
 $~$
 
-### **Poppy (Xiangwen)**
+#### **Poppy (Xiangwen)**
 - Exercise 7 (README file)
 - Exercise 5: Teamwork Contract
 
-### **Sarah**
+#### **Sarah**
 - Exercise 1 (Getting Setup)
 - Exercise 5: Teamwork Contract
 - Exercise 8 (Submitting this Milestone)
+
+### :busts_in_silhouette: <a name="pullrequests"></a> Pull Requests
+**Joey**
+- [x] Pull Request Created
+- [x] Merged a Pull Request
+
+**Juliana**
+- [x] Pull Request Created
+- [x] Merged a Pull Request
+
+**Poppy**
+- [x] Pull Request Created
+- [ ] Merged a Pull Request
+
+**Sarah**
+- [x] Pull Request Created
+- [x] Merged a Pull Request
 
 $~$
 
