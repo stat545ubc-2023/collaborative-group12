@@ -1,5 +1,7 @@
 # ✨ Group 12 - Teamwork Contract ✨
 
+Group 12's teamwork contract for Milestone 1 of the collaborative group project.
+
 $~$
 
 ## 📋 Table of Contents
@@ -11,10 +13,12 @@ $~$
 $~$
 
 ## 🤝 <a name="members"></a> Group Members 
-1. @hotz1
-2. @jmfvieira11
-3. @poppypeapea
-4. @sarahmasri
+Member | GitHub Username
+| :---: |
+Joey | [@hotz1](https://github.com/hotz1)
+Juliana | [@jmfvieira11](https://github.com/jmfvieira11)
+Poppy (Xiangwen) | [@poppypeapea](https://github.com/poppypeapea)
+Sarah | [@sarahmasri](https://github.com/sarahmasri)
 
 $~$
 
@@ -40,9 +44,25 @@ Juliana | Done | ✔
 Poppy | Done  |  ✔
 Sarah | Done | ✔
 
+Joey:
+- [x] Pull Request Created
+- [x] Merged a Pull Request
+
+Juliana:
+- [x] Pull Request Created
+- [x] Merged a Pull Request
+
+Poppy:
+- [x] Pull Request Created
+- [x] Merged a Pull Request
+
+Sarah:
+- [x] Pull Request Created
+- [x] Merged a Pull Request
+
 $~$
 
-### **Poppy** (Xiangwen)
+### **Poppy (Xiangwen)**
 - Exercise 7 (README file)
 - Exercise 5: Teamwork Contract
 
@@ -55,8 +75,8 @@ $~$
 
 ## 🕰️ <a name="timing"></a> Timing 
 
-- Make pull requests by Seotember 22 at 11am.
-- Aim to submit by September 22 1pm at the latest.
+- Make pull requests by September 22 at 11 AM (PST).
+- Aim to submit by 1 PM (PST) on September 22  at the latest.
 - A meeting has been set up for Milestone 2 (Tuesday after class). 
 
 $~$
