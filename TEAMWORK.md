@@ -1,3 +1,7 @@
 # Group 12 Teamwork file
 
-Filler text here
+Group Members:
+1. @hotz1
+2. @jmfvieira11
+3. @poppypeapea
+4. @sarahmasri
