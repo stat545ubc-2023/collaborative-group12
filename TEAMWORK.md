@@ -36,7 +36,7 @@ $~$
 Member | Pull request | Confirm pull request
    :---:  |   :---:  |   :---:  
 Joey| Done | ✔
-Juliana | Done | 
+Juliana | Done | ✔
 Poppy | Done  |  ✔
 Sarah | Done | ✔
 
