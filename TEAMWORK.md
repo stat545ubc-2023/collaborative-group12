@@ -17,7 +17,7 @@ $~$
 $~$ 
 
 Member | GitHub Username
-| :---: |
+| :---: | :---:
 Joey | [@hotz1](https://github.com/hotz1)
 Juliana | [@jmfvieira11](https://github.com/jmfvieira11)
 Poppy (Xiangwen) | [@poppypeapea](https://github.com/poppypeapea)
