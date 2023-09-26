@@ -1,3 +1,4 @@
+
 Team Troubleshooting Deliverable 2
 ================
 
@@ -272,6 +273,7 @@ each movie has been reviewed, or in other words, how many times each
 movie title appears in the dataset.
 
 ``` r
+
 movieLens %>%
   group_by(title) %>%
   tally()
@@ -296,6 +298,7 @@ Without using `group_by()`, I want to find out how many movie reviews
 there have been for each year.
 
 ``` r
+
 ### ERROR HERE ###
 movieLens %>%
   tally(year)
@@ -311,10 +314,12 @@ I want to count the number of movie reviews by title and rating, and
 sort the results.
 
 ``` r
+
 ### ERROR HERE ###
 movieLens %>%
   count(c(title, rating), sort = TRUE)
 ```
+
 
     ## Error in `count()`:
     ## ℹ In argument: `c(title, rating)`.
@@ -332,6 +337,7 @@ We can calculate the mean rating by year, and store it in a new column
 called `avg_rating`:
 
 ``` r
+
 movieLens %>%
   group_by(year) %>%
   summarize(avg_rating = mean(rating))
@@ -357,11 +363,13 @@ title, stored under columns named `min_rating`, and `max_rating`,
 respectively.
 
 ``` r
+
 ### ERROR HERE ###
 movieLens %>%
   mutate(min_rating = min(rating), 
          max_rating = max(rating))
 ```
+
 
     ## # A tibble: 100,004 × 9
     ##    movie_id title     year genres user_id rating timestamp min_rating max_rating
@@ -394,9 +402,11 @@ We can find the mean for all columns that are numeric, ignoring the
 missing values:
 
 ``` r
+
 starWars %>%
   summarise(across(where(is.numeric), function(x) mean(x, na.rm=TRUE)))
 ```
+
 
     ## # A tibble: 1 × 3
     ##   height  mass birth_year
@@ -407,6 +417,7 @@ We can find the minimum height and mass within each species, ignoring
 the missing values:
 
 ``` r
+
 ### ERROR HERE ###
 starWars %>%
   group_by(species) %>%
@@ -434,6 +445,7 @@ Manually create a tibble with 4 columns:
   and New York).
 
 ``` r
+
 ### ERROR HERE ###
 fakeStarWars <- tribble(
   ~name,            ~birth_weight,  ~birth_year, ~birth_location
@@ -448,6 +460,7 @@ fakeStarWars <- tribble(
 )
 ```
 
+
     ## Error: <text>:4:3: unexpected string constant
     ## 3:   ~name,            ~birth_weight,  ~birth_year, ~birth_location
     ## 4:   "Luke Skywalker"
@@ -458,3 +471,4 @@ fakeStarWars <- tribble(
 Thanks to Icíar Fernández-Boyano for writing most of this document, and
 Albina Gibadullina, Diana Lin, Yulia Egorova, and Vincenzo Coia for
 their edits.
+
