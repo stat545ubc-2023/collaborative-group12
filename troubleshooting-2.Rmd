@@ -16,12 +16,11 @@ Note that errors are not all syntactic (i.e., broken code)! Some are logical err
 [MovieLens](https://dl.acm.org/doi/10.1145/2827872) are a series of datasets widely used in education, that describe movie ratings from the MovieLens [website](https://movielens.org/). There are several MovieLens datasets, collected by the [GroupLens Research Project](https://grouplens.org/datasets/movielens/) at the University of Minnesota. Here, we load the MovieLens 100K dataset from Rafael Irizarry and Amy Gill's R package, [dslabs](https://cran.r-project.org/web/packages/dslabs/dslabs.pdf), which contains datasets useful for data analysis practice, homework, and projects in data science courses and workshops. We'll also load other required packages.
 
 ```{r}
-### ERROR HERE ###
 library(dslabs)
 library(tidyverse)
 library(stringr)
-# install.packages("devtools") # Do not run this if you already have this package installed! 
-# devtools::install_github("JoeyBernhardt/singer")
+#install.packages("devtools") # Do not run this if you already have this package installed! 
+devtools::install_github("JoeyBernhardt/singer")
 library(gapminder)
 ```
 
@@ -32,10 +31,10 @@ Let's have a look at the dataset! My goal is to:
 -   Have a quick look at the tibble, using a *dplyr function*.
 
 ```{r}
-### ERROR HERE ###
-class(dslabs::movielens)
+print(class(dslabs::movielens))
 movieLens <- as_tibble(dslabs::movielens)
-dim(movieLens)
+#dim(movieLens)
+movieLens %>% head()
 ```
 
 Now that we've had a quick look at the dataset, it would be interesting to explore the rows (observations) in some more detail. I'd like to consider the movie entries that...
@@ -47,21 +46,18 @@ Now that we've had a quick look at the dataset, it would be interesting to explo
 -   have *more than* 4.5 stars, and were filmed *before* 1995.
 
 ```{r}
-### ERROR HERE ###
 filter(movieLens, genres == "Drama")
 filter(movieLens, !genres == "Drama")
 filter(movieLens, year >= 2000)
-filter(movieLens, year == 1999 | month == 2000)
-filter(movieLens, rating > 4.5, year < 1995)
+filter(movieLens, year == 1999 | year == 2000)
 ```
 
 While filtering for *all movies that do not belong to the genre drama* above, I noticed something interesting. I want to filter for the same thing again, this time selecting variables **title and genres first,** and then *everything else*. But I want to do this in a robust way, so that (for example) if I end up changing `movieLens` to contain more or less columns some time in the future, the code will still work. Hint: there is a function to select "everything else"...
 
 ```{r}
-### ERROR HERE ###
 movieLens %>%
   filter(!genres == "Drama") %>%
-  select(title, genres, year, rating, timestamp)
+  select(title, genres, everything())
 ```
 
 ## Exercise 2: Calculating with `mutate()`-like functions
@@ -69,18 +65,14 @@ movieLens %>%
 Some of the variables in the `movieLens` dataset are in *camelCase* (in fact, *movieLens* is in camelCase). Let's clean these two variables to use *snake_case* instead, and assign our post-rename object back to "movieLens".
 
 ```{r}
-### ERROR HERE ###
 movieLens <- movieLens %>%
-  rename(user_id == userId,
-         movie_id == movieId)
+             rename('user_id' = 'userId', 'movie_id' = 'movieId')
 ```
 
 As you already know, `mutate()` defines and inserts new variables into a tibble. There is *another mystery function similar to `mutate()`* that adds the new variable, but also drops existing ones. I wanted to create an `average_rating` column that takes the `mean(rating)` across all entries, and I only want to see that variable (i.e drop all others!) but I forgot what that mystery function is. Can you remember?
 
 ```{r}
-### ERROR HERE ### 
-mutate(movieLens,
-       average_rating = mean(rating))
+mutate(movieLens, average_rating = mean(rating), rating = NULL)
 ```
 
 ## Exercise 3: Calculating with `summarise()`-like functions
@@ -98,21 +90,19 @@ movieLens %>%
 Without using `group_by()`, I want to find out how many movie reviews there have been for each year.
 
 ```{r}
-### ERROR HERE ###
-
 # Fix for the error: replace `tally` with `count`.
 movieLens %>%
   count(year)
+
 ```
 
 Both `count()` and `tally()` can be grouped by multiple columns. Below, I want to count the number of movie reviews by title and rating, and sort the results.
 
 ```{r}
-### ERROR HERE ###
-
 # Fix for the error: Use column names outright instead of a vector of column names
 movieLens %>%
   count(title, rating, sort = TRUE)
+
 ```
 
 Not only do `count()` and `tally()` quickly allow you to count items within your dataset, `add_tally()` and `add_count()` are handy shortcuts that add an additional columns to your tibble, rather than collapsing each group.
@@ -130,8 +120,6 @@ movieLens %>%
 Using `summarize()`, we can find the minimum and the maximum rating by title, stored under columns named `min_rating`, and `max_rating`, respectively.
 
 ```{r}
-### ERROR HERE ###
-
 # Fix for the error: Group by title before computing min and max rating
 movieLens %>%
   group_by(title) %>%
@@ -190,5 +178,4 @@ fakeStarWars <- tribble(
 ```
 
 ## Attributions
-
 Thanks to Icíar Fernández-Boyano for writing most of this document, and Albina Gibadullina, Diana Lin, Yulia Egorova, and Vincenzo Coia for their edits.

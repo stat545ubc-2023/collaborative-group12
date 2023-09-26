@@ -70,7 +70,7 @@ $~$
 
 **Poppy**
 - [x] Pull Request Created
-- [ ] Merged a Pull Request
+- [x] Merged a Pull Request
 
 **Sarah**
 - [x] Pull Request Created
