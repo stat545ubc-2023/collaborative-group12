@@ -29,48 +29,65 @@ $~$
 The division of labour was decided as a group. Exercises 3, 4, and 5 were done together.
 
 ### :bust_in_silhouette: <a name="individual"></a> Individual Responsibilities
-
+***
 #### **Joey**
+Milestone 1
 - Exercise 6 (Troubleshooting document)
 - Checking Exercise 2 (Markdown Formatting) is fulfilled and completed properly
 - Exercise 5: Teamwork Contract
 
+Milestone 2
+- Troubleshooting-2 file:
+   - Exercise 3
+   - Exercise 4
+***
 #### **Juliana**
+Milestone 1
 - Checking Exercise 3 (Merge one Pull Request per teammate) is fulfilled and completed properly
 - Exercise 5: Teamwork Contract
-  
-$~$
 
-Member | Pull request | Confirm pull request
-   :---:  |   :---:  |   :---:  
-Joey| Done | ✔
-Juliana | Done | ✔
-Poppy | Done  |  ✔
-Sarah | Done | ✔
+Milestone 2
+- Troubleshooting-2 file:
+   - Exercise 6
+- Exercise 2: README file and tidy 
 
-$~$
-
+*** 
 #### **Poppy (Xiangwen)**
+Milestone 1
 - Exercise 7 (README file)
 - Exercise 5: Teamwork Contract
 
+Milestone 2
+- Troubleshooting-2 file:
+   - Exercise 5
+- Exercise 3: Submitting the Milestone 2
+
+***
 #### **Sarah**
+Milestone 1
 - Exercise 1 (Getting Setup)
 - Exercise 5: Teamwork Contract
 - Exercise 8 (Submitting this Milestone)
 
-### :busts_in_silhouette: <a name="pullrequests"></a> Pull Requests
+Milestone 2
+- Troubleshooting-2 file:
+   - Exercise 1
+   - Exercise 2
+***
+
+### Merge one Pull Request per teammate
+#### :busts_in_silhouette: <a name="pullrequests"></a> Pull Requests
 **Joey**
 - [x] Pull Request Created
-- [x] Merged a Pull Request
+- [ ] Merged a Pull Request
 
 **Juliana**
 - [x] Pull Request Created
 - [x] Merged a Pull Request
 
 **Poppy**
-- [x] Pull Request Created
-- [x] Merged a Pull Request
+- [ ] Pull Request Created
+- [ ] Merged a Pull Request
 
 **Sarah**
 - [x] Pull Request Created
