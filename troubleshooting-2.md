@@ -1,4 +1,3 @@
-
 Team Troubleshooting Deliverable 2
 ================
 
@@ -175,25 +174,6 @@ filter(movieLens, year == 1999 | year == 2000)
     ## 10    2628 Star Wars: Episode I - The Phan…  1999 Actio…      4    5      9.50e8
     ## # ℹ 9,078 more rows
 
-``` r
-filter(movieLens, rating > 4.5, year < 1995)
-```
-
-    ## # A tibble: 8,386 × 7
-    ##    movieId title                             year genres userId rating timestamp
-    ##      <int> <chr>                            <int> <fct>   <int>  <dbl>     <int>
-    ##  1     265 Like Water for Chocolate (Como …  1992 Drama…      2      5    8.35e8
-    ##  2     266 Legends of the Fall               1994 Drama…      2      5    8.35e8
-    ##  3     551 Nightmare Before Christmas, The   1993 Anima…      2      5    8.35e8
-    ##  4     589 Terminator 2: Judgment Day        1991 Actio…      2      5    8.35e8
-    ##  5     590 Dances with Wolves                1990 Adven…      2      5    8.35e8
-    ##  6     592 Batman                            1989 Actio…      2      5    8.35e8
-    ##  7     318 Shawshank Redemption, The         1994 Crime…      3      5    1.30e9
-    ##  8     356 Forrest Gump                      1994 Comed…      3      5    1.30e9
-    ##  9    1197 Princess Bride, The               1987 Actio…      3      5    1.30e9
-    ## 10     260 Star Wars: Episode IV - A New H…  1977 Actio…      4      5    9.50e8
-    ## # ℹ 8,376 more rows
-
 While filtering for *all movies that do not belong to the genre drama*
 above, I noticed something interesting. I want to filter for the same
 thing again, this time selecting variables **title and genres first,**
@@ -273,7 +253,6 @@ each movie has been reviewed, or in other words, how many times each
 movie title appears in the dataset.
 
 ``` r
-
 movieLens %>%
   group_by(title) %>%
   tally()
@@ -298,33 +277,50 @@ Without using `group_by()`, I want to find out how many movie reviews
 there have been for each year.
 
 ``` r
-
-### ERROR HERE ###
+# Fix for the error: replace `tally` with `count`.
 movieLens %>%
-  tally(year)
+  count(year)
 ```
 
-    ## # A tibble: 1 × 1
-    ##           n
-    ##       <int>
-    ## 1 199176755
+    ## # A tibble: 104 × 2
+    ##     year     n
+    ##    <int> <int>
+    ##  1  1902     6
+    ##  2  1915     2
+    ##  3  1916     1
+    ##  4  1917     2
+    ##  5  1918     2
+    ##  6  1919     1
+    ##  7  1920    15
+    ##  8  1921    12
+    ##  9  1922    28
+    ## 10  1923     3
+    ## # ℹ 94 more rows
 
 Both `count()` and `tally()` can be grouped by multiple columns. Below,
 I want to count the number of movie reviews by title and rating, and
 sort the results.
 
 ``` r
-
-### ERROR HERE ###
+# Fix for the error: Use column names outright instead of a vector of column names
 movieLens %>%
-  count(c(title, rating), sort = TRUE)
+  count(title, rating, sort = TRUE)
 ```
 
-
-    ## Error in `count()`:
-    ## ℹ In argument: `c(title, rating)`.
-    ## Caused by error:
-    ## ! `c(title, rating)` must be size 100004 or 1, not 200008.
+    ## # A tibble: 28,297 × 3
+    ##    title                              rating     n
+    ##    <chr>                               <dbl> <int>
+    ##  1 Shawshank Redemption, The               5   170
+    ##  2 Pulp Fiction                            5   138
+    ##  3 Star Wars: Episode IV - A New Hope      5   122
+    ##  4 Forrest Gump                            4   113
+    ##  5 Schindler's List                        5   109
+    ##  6 Godfather, The                          5   107
+    ##  7 Forrest Gump                            5   102
+    ##  8 Silence of the Lambs, The               4   102
+    ##  9 Fargo                                   5   100
+    ## 10 Silence of the Lambs, The               5   100
+    ## # ℹ 28,287 more rows
 
 Not only do `count()` and `tally()` quickly allow you to count items
 within your dataset, `add_tally()` and `add_count()` are handy shortcuts
@@ -337,7 +333,6 @@ We can calculate the mean rating by year, and store it in a new column
 called `avg_rating`:
 
 ``` r
-
 movieLens %>%
   group_by(year) %>%
   summarize(avg_rating = mean(rating))
@@ -363,27 +358,27 @@ title, stored under columns named `min_rating`, and `max_rating`,
 respectively.
 
 ``` r
-
-### ERROR HERE ###
+# Fix for the error: Group by title before computing min and max rating
 movieLens %>%
+  group_by(title) %>%
   mutate(min_rating = min(rating), 
-         max_rating = max(rating))
+         max_rating = max(rating)) %>%
+  ungroup()
 ```
-
 
     ## # A tibble: 100,004 × 9
     ##    movie_id title     year genres user_id rating timestamp min_rating max_rating
     ##       <int> <chr>    <int> <fct>    <int>  <dbl>     <int>      <dbl>      <dbl>
-    ##  1       31 Dangero…  1995 Drama        1    2.5    1.26e9        0.5          5
-    ##  2     1029 Dumbo     1941 Anima…       1    3      1.26e9        0.5          5
-    ##  3     1061 Sleepers  1996 Thril…       1    3      1.26e9        0.5          5
-    ##  4     1129 Escape …  1981 Actio…       1    2      1.26e9        0.5          5
-    ##  5     1172 Cinema …  1989 Drama        1    4      1.26e9        0.5          5
+    ##  1       31 Dangero…  1995 Drama        1    2.5    1.26e9        1.5          5
+    ##  2     1029 Dumbo     1941 Anima…       1    3      1.26e9        1.5          5
+    ##  3     1061 Sleepers  1996 Thril…       1    3      1.26e9        2            5
+    ##  4     1129 Escape …  1981 Actio…       1    2      1.26e9        1            5
+    ##  5     1172 Cinema …  1989 Drama        1    4      1.26e9        2            5
     ##  6     1263 Deer Hu…  1978 Drama…       1    2      1.26e9        0.5          5
     ##  7     1287 Ben-Hur   1959 Actio…       1    2      1.26e9        0.5          5
-    ##  8     1293 Gandhi    1982 Drama        1    2      1.26e9        0.5          5
-    ##  9     1339 Dracula…  1992 Fanta…       1    3.5    1.26e9        0.5          5
-    ## 10     1343 Cape Fe…  1991 Thril…       1    2      1.26e9        0.5          5
+    ##  8     1293 Gandhi    1982 Drama        1    2      1.26e9        1.5          5
+    ##  9     1339 Dracula…  1992 Fanta…       1    3.5    1.26e9        1            5
+    ## 10     1343 Cape Fe…  1991 Thril…       1    2      1.26e9        2            5
     ## # ℹ 99,994 more rows
 
 ## Exercise 5: Scoped variants with `across()`
@@ -402,11 +397,9 @@ We can find the mean for all columns that are numeric, ignoring the
 missing values:
 
 ``` r
-
 starWars %>%
   summarise(across(where(is.numeric), function(x) mean(x, na.rm=TRUE)))
 ```
-
 
     ## # A tibble: 1 × 3
     ##   height  mass birth_year
@@ -417,7 +410,6 @@ We can find the minimum height and mass within each species, ignoring
 the missing values:
 
 ``` r
-
 ### ERROR HERE ###
 starWars %>%
   group_by(species) %>%
@@ -445,7 +437,6 @@ Manually create a tibble with 4 columns:
   and New York).
 
 ``` r
-
 ### ERROR HERE ###
 fakeStarWars <- tribble(
   ~name,            ~birth_weight,  ~birth_year, ~birth_location
@@ -460,7 +451,6 @@ fakeStarWars <- tribble(
 )
 ```
 
-
     ## Error: <text>:4:3: unexpected string constant
     ## 3:   ~name,            ~birth_weight,  ~birth_year, ~birth_location
     ## 4:   "Luke Skywalker"
@@ -471,4 +461,3 @@ fakeStarWars <- tribble(
 Thanks to Icíar Fernández-Boyano for writing most of this document, and
 Albina Gibadullina, Diana Lin, Yulia Egorova, and Vincenzo Coia for
 their edits.
-
