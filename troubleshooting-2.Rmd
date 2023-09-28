@@ -19,8 +19,8 @@ Note that errors are not all syntactic (i.e., broken code)! Some are logical err
 library(dslabs)
 library(tidyverse)
 library(stringr)
-#install.packages("devtools") # Do not run this if you already have this package installed! 
-devtools::install_github("JoeyBernhardt/singer")
+# install.packages("devtools") # Do not run this if you already have this package installed! 
+# devtools::install_github("JoeyBernhardt/singer")
 library(gapminder)
 ```
 
@@ -102,7 +102,6 @@ Both `count()` and `tally()` can be grouped by multiple columns. Below, I want t
 # Fix for the error: Use column names outright instead of a vector of column names
 movieLens %>%
   count(title, rating, sort = TRUE)
-
 ```
 
 Not only do `count()` and `tally()` quickly allow you to count items within your dataset, `add_tally()` and `add_count()` are handy shortcuts that add an additional columns to your tibble, rather than collapsing each group.
@@ -123,9 +122,8 @@ Using `summarize()`, we can find the minimum and the maximum rating by title, st
 # Fix for the error: Group by title before computing min and max rating
 movieLens %>%
   group_by(title) %>%
-  mutate(min_rating = min(rating), 
-         max_rating = max(rating)) %>%
-  ungroup()
+  summarize(min_rating = min(rating), 
+            max_rating = max(rating))
 ```
 
 ## Exercise 5: Scoped variants with `across()`
