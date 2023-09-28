@@ -353,12 +353,26 @@ respectively.
 
 ``` r
 # Fix for the error: Group by title before computing min and max rating
-ml2 <-movieLens %>%
+movieLens %>%
   group_by(title) %>%
   summarize(min_rating = min(rating), 
-            max_rating = max(rating)) %>%
-  ungroup()
+            max_rating = max(rating))
 ```
+
+    ## # A tibble: 8,832 × 3
+    ##    title                              min_rating max_rating
+    ##    <chr>                                   <dbl>      <dbl>
+    ##  1 "\"Great Performances\" Cats"             0.5        3  
+    ##  2 "$9.99"                                   2.5        4.5
+    ##  3 "'Hellboy': The Seeds of Creation"        2          2  
+    ##  4 "'Neath the Arizona Skies"                0.5        0.5
+    ##  5 "'Round Midnight"                         0.5        4  
+    ##  6 "'Salem's Lot"                            3.5        3.5
+    ##  7 "'Til There Was You"                      0.5        4  
+    ##  8 "'burbs, The"                             1.5        4.5
+    ##  9 "'night Mother"                           5          5  
+    ## 10 "(500) Days of Summer"                    0.5        5  
+    ## # ℹ 8,822 more rows
 
 ## Exercise 5: Scoped variants with `across()`
 
