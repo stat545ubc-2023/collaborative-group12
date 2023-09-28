@@ -41,14 +41,8 @@ library(tidyverse)
 
 ``` r
 library(stringr)
-#install.packages("devtools") # Do not run this if you already have this package installed! 
-devtools::install_github("JoeyBernhardt/singer")
-```
-
-    ## Skipping install of 'singer' from a github remote, the SHA1 (2b4fe9cb) has not changed since last install.
-    ##   Use `force = TRUE` to force installation
-
-``` r
+# install.packages("devtools") # Do not run this if you already have this package installed! 
+# devtools::install_github("JoeyBernhardt/singer")
 library(gapminder)
 ```
 
@@ -359,27 +353,12 @@ respectively.
 
 ``` r
 # Fix for the error: Group by title before computing min and max rating
-movieLens %>%
+ml2 <-movieLens %>%
   group_by(title) %>%
-  mutate(min_rating = min(rating), 
-         max_rating = max(rating)) %>%
+  summarize(min_rating = min(rating), 
+            max_rating = max(rating)) %>%
   ungroup()
 ```
-
-    ## # A tibble: 100,004 × 9
-    ##    movie_id title     year genres user_id rating timestamp min_rating max_rating
-    ##       <int> <chr>    <int> <fct>    <int>  <dbl>     <int>      <dbl>      <dbl>
-    ##  1       31 Dangero…  1995 Drama        1    2.5    1.26e9        1.5          5
-    ##  2     1029 Dumbo     1941 Anima…       1    3      1.26e9        1.5          5
-    ##  3     1061 Sleepers  1996 Thril…       1    3      1.26e9        2            5
-    ##  4     1129 Escape …  1981 Actio…       1    2      1.26e9        1            5
-    ##  5     1172 Cinema …  1989 Drama        1    4      1.26e9        2            5
-    ##  6     1263 Deer Hu…  1978 Drama…       1    2      1.26e9        0.5          5
-    ##  7     1287 Ben-Hur   1959 Actio…       1    2      1.26e9        0.5          5
-    ##  8     1293 Gandhi    1982 Drama        1    2      1.26e9        1.5          5
-    ##  9     1339 Dracula…  1992 Fanta…       1    3.5    1.26e9        1            5
-    ## 10     1343 Cape Fe…  1991 Thril…       1    2      1.26e9        2            5
-    ## # ℹ 99,994 more rows
 
 ## Exercise 5: Scoped variants with `across()`
 

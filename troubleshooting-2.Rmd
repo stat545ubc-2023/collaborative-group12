@@ -19,8 +19,8 @@ Note that errors are not all syntactic (i.e., broken code)! Some are logical err
 library(dslabs)
 library(tidyverse)
 library(stringr)
-#install.packages("devtools") # Do not run this if you already have this package installed! 
-devtools::install_github("JoeyBernhardt/singer")
+# install.packages("devtools") # Do not run this if you already have this package installed! 
+# devtools::install_github("JoeyBernhardt/singer")
 library(gapminder)
 ```
 
@@ -121,10 +121,10 @@ Using `summarize()`, we can find the minimum and the maximum rating by title, st
 
 ```{r}
 # Fix for the error: Group by title before computing min and max rating
-movieLens %>%
+ml2 <-movieLens %>%
   group_by(title) %>%
-  mutate(min_rating = min(rating), 
-         max_rating = max(rating)) %>%
+  summarize(min_rating = min(rating), 
+            max_rating = max(rating)) %>%
   ungroup()
 ```
 
