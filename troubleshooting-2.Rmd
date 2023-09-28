@@ -144,6 +144,8 @@ starWars %>%
 We can find the minimum height and mass within each species, ignoring the missing values: 
 
 ```{r}
+# Fix for the error:  changing the column names from character strings "height" and "mass" to a vector c(height, mass)
+
 starWars %>%
   group_by(species) %>%
   summarise(across(c(height, mass), function(x) min(x, na.rm=TRUE)))
