@@ -403,21 +403,13 @@ We can find the minimum height and mass within each species, ignoring
 the missing values:
 
 ``` r
-### ERROR HERE ###
+# Fix for the error:  changing the column names from character strings "height" and "mass" to a vector c(height, mass)
+
 starWars %>%
   group_by(species) %>%
-  summarise(across("height", "mass", function(x) min(x, na.rm=TRUE)))
+  summarise(across(c(height, mass), function(x) min(x, na.rm=TRUE)))
+
 ```
-
-    ## Error in `summarise()`:
-    ## ℹ In argument: `across("height", "mass", function(x) min(x, na.rm =
-    ##   TRUE))`.
-    ## ℹ In group 1: `species = "Aleena"`.
-    ## Caused by error in `across()`:
-    ## ! `.fns` must be a function, a formula, or a list of functions/formulas.
-
-Note that here R has taken the convention that the minimum value of a
-set of `NA`s is `Inf`.
 
 ## Exercise 6: Making tibbles
 
