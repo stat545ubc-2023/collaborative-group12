@@ -408,8 +408,33 @@ the missing values:
 starWars %>%
   group_by(species) %>%
   summarise(across(c(height, mass), function(x) min(x, na.rm=TRUE)))
-
 ```
+
+    ## Warning: There were 6 warnings in `summarise()`.
+    ## The first warning was:
+    ## ℹ In argument: `across(c(height, mass), function(x) min(x, na.rm = TRUE))`.
+    ## ℹ In group 4: `species = "Chagrian"`.
+    ## Caused by warning in `min()`:
+    ## ! no non-missing arguments to min; returning Inf
+    ## ℹ Run `dplyr::last_dplyr_warnings()` to see the 5 remaining warnings.
+
+    ## # A tibble: 38 × 3
+    ##    species   height  mass
+    ##    <chr>      <int> <dbl>
+    ##  1 Aleena        79    15
+    ##  2 Besalisk     198   102
+    ##  3 Cerean       198    82
+    ##  4 Chagrian     196   Inf
+    ##  5 Clawdite     168    55
+    ##  6 Droid         96    32
+    ##  7 Dug          112    40
+    ##  8 Ewok          88    20
+    ##  9 Geonosian    183    80
+    ## 10 Gungan       196    66
+    ## # ℹ 28 more rows
+
+Note that here R has taken the convention that the minimum value of a
+set of `NA`s is `Inf`.
 
 ## Exercise 6: Making tibbles
 
@@ -435,6 +460,7 @@ fakeStarWars <- tribble(
   "R5-D4"         ,  4.50      ,   2005        ,  "New York, NY",
 )
 ```
+
 ## Attributions
 
 Thanks to Icíar Fernández-Boyano for writing most of this document, and
